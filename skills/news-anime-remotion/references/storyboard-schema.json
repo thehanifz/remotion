@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-012/schema",
+  "title": "RemotionAnimeNewsStoryboard",
+  "description": "Struktur data storyboard JSON siap konsumsi untuk komponen Remotion 9:16.",
+  "type": "object",
+  "required": ["meta", "audio", "scenes"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["episodeId", "title", "sourceUrl", "width", "height", "fps", "totalDurationInFrames"],
+      "properties": {
+        "episodeId": { "type": "string", "description": "YYYY-MM-DD-slug-berita" },
+        "title": { "type": "string" },
+        "sourceUrl": { "type": "string" },
+        "style": { "type": "string", "default": "anime-2d-sports-manga" },
+        "width": { "type": "integer", "default": 1080 },
+        "height": { "type": "integer", "default": 1920 },
+        "fps": { "type": "integer", "default": 30 },
+        "totalDurationInFrames": { "type": "integer" }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "properties": {
+        "voiceoverFile": { "type": "string", "example": "assets/vo-main.mp3" },
+        "bgmMood": { "type": "string", "example": "energetic-anime-rock-loop" },
+        "sfxCues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "frame": { "type": "integer" },
+              "sfx": { "type": "string", "example": "whistle-sharp" }
+            }
+          }
+        }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "startFrame", "durationInFrames", "voiceoverText", "layers"],
+        "properties": {
+          "id": { "type": "string", "example": "scene-01-hook" },
+          "name": { "type": "string" },
+          "startFrame": { "type": "integer" },
+          "durationInFrames": { "type": "integer" },
+          "voiceoverText": { "type": "string" },
+          "highlightWords": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "captions": {
+            "type": "array",
+            "description": "Segmen subtitle v3.2: tiap segmen MAKS 2 baris (±maks 12 kata), dipecah di batas frasa alami, frame relatif terhadap awal adegan, durasi sebanding jumlah kata supaya tampil tepat selama kata-katanya diucapkan. Bila kosong, template menampilkan voiceoverText utuh.",
+            "items": {
+              "type": "object",
+              "required": ["text", "startFrame", "durationInFrames"],
+              "properties": {
+                "text": { "type": "string" },
+                "highlightWords": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "startFrame": { "type": "integer", "description": "Relatif terhadap awal adegan" },
+                "durationInFrames": { "type": "integer" }
+              }
+            }
+          },
+          "cameraMotion": {
+            "type": "string",
+            "enum": ["static", "slow-zoom-in", "slow-zoom-out", "punch-zoom", "shake-impact"]
+          },
+          "layers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["type", "zIndex", "animationPreset"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["background", "character", "prop", "fx", "textOverlay"]
+                },
+                "assetId": { "type": "string" },
+                "filePath": { "type": "string" },
+                "text": { "type": "string" },
+                "zIndex": { "type": "integer" },
+                "position": {
+                  "type": "object",
+                  "properties": {
+                    "xPercent": { "type": "number" },
+                    "yPercent": { "type": "number" },
+                    "scale": { "type": "number" }
+                  }
+                },
+                "animationPreset": {
+                  "type": "string",
+                  "enum": [
+                    "slam-in",
+                    "slide-left",
+                    "slide-right",
+                    "bounce-pop",
+                    "shake-impact",
+                    "freeze-zoom",
+                    "float-idle",
+                    "fade-in"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

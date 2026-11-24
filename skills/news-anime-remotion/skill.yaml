@@ -1,0 +1,5 @@
+name: news-anime-remotion
+title: Video Anime Berita (Remotion)
+description: Ubah artikel berita dari URL mana saja menjadi video animasi pendek 9:16 siap unggah (MP4). Alur terbaru: gambar dibuat di Google Flow (karakter dari foto asli + adegan per penjelasan), semua editing dan perakitan dilakukan Muse di Remotion — storyboard JSON, sinkronisasi durasi ke VO, render otomatis.
+category: Media
+include_in_prompt: false

@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "style": "anime-2d-sports-manga",
+  "assets": {
+    "characters": [
+      {
+        "assetId": "char-example-player-celebrate",
+        "entityName": "Contoh Tokoh",
+        "category": "character",
+        "expression": "celebrate",
+        "styleAnchor": "male athlete in late 20s, short dark wavy hair, sharp brows, wearing royal blue athletic jersey with white accents",
+        "filePath": "assets/characters/char-example-player-celebrate.png",
+        "aspectRatio": "1:1",
+        "status": "template_example"
+      }
+    ],
+    "props": [
+      {
+        "assetId": "prop-red-card",
+        "entityName": "Kartu Merah",
+        "category": "prop",
+        "filePath": "assets/props/prop-red-card.png",
+        "aspectRatio": "1:1",
+        "status": "template_example"
+      },
+      {
+        "assetId": "prop-var-monitor",
+        "entityName": "Monitor VAR",
+        "category": "prop",
+        "filePath": "assets/props/prop-var-monitor.png",
+        "aspectRatio": "1:1",
+        "status": "template_example"
+      }
+    ],
+    "backgrounds": [
+      {
+        "assetId": "bg-stadium-night",
+        "entityName": "Stadion Malam Dramatis",
+        "category": "background",
+        "filePath": "assets/backgrounds/bg-stadium-night.png",
+        "aspectRatio": "9:16",
+        "status": "template_example"
+      }
+    ],
+    "emblems": []
+  }
+}
